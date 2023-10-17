@@ -1,0 +1,63 @@
+﻿@model Myproject.Models.User;
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="/css/Register.css" />
+</head>
+<body>
+    <form asp-action="RegisterController" asp-controller="Authentication">
+        <div class="Login">
+            <h1>Resgister</h1>
+            <div class="Login_text">
+                <div class="Text">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" placeholder="Email" id="email" name="userName" />
+                </div>
+                <div class="Text">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" name="passWord" />
+                    <i class="fa-regular fa-eye" onclick="changePass()"></i>
+                    <i class="fa-regular fa-eye-slash" onclick="changePass()"></i>
+                </div>
+                <div class="Text">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password"
+                           id="confirm"
+                           placeholder="Confirm password" />
+                    <i class="fa-regular fa-eye" onclick="change()"></i>
+                    <i class="fa-regular fa-eye-slash" onclick="change()"></i>
+                </div>
+                <span class="mess">Hãy nhập lại mật khẩu</span>
+                <div class="Info">
+                    <input type="date" placeholder="Day" id="address" />
+                    <input type="text" placeholder="Phone" id="phone" />
+                </div>
+            </div>
+            <div class="Controller">
+                <button type="submit" id="Register">Resgister</button>
+                <button>
+                    <a href="/Authentication/LoginController"> Login </a>
+                </button>
+            </div>
+        </div>
+    </form>
+    <script>
+        function changePass() {
+            let password = document.getElementById("password");
+            password.type = password.type == "text" ? "password" : "text";
+        }
+        function change() {
+            let password = document.getElementById("confirm");
+            password.type = password.type == "text" ? "password" : "text";
+        }
+    </script>
+</body>
+</html>
